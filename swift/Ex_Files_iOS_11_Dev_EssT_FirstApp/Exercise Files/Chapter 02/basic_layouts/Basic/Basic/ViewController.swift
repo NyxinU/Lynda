@@ -9,14 +9,23 @@
 import UIKit
 
 class ViewController: UIViewController {
-    @IBOutlet weak var myLabel: UILabel!
+    
+    @IBOutlet weak var nameInput: UITextField!
+    @IBOutlet weak var myNameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
-    @IBAction func didTapLoad(_ sender: Any) {
-        myLabel.text = "changed with code"
+    @IBAction func didTapButton(_ sender: Any) {
+        if let name = nameInput.text {
+            myNameLabel.text = "Hi \(name)!"
+            nameInput.resignFirstResponder()
+        }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
     }
     
     override func didReceiveMemoryWarning() {
