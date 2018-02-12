@@ -1,11 +1,11 @@
 import express from 'express';
-import { MongoClient, ObjectID } from 'mongodb';
+import { MongoClient, ObjectID } from 'mongodb'; //read from mongo db
 import assert from 'assert';
 import config from '../config';
 
 let mdb;
 MongoClient.connect(config.mongodbUri, (err, db) => {
-  assert.equal(null, err);
+  assert.equal(null, err); //raise error if we have an error connecting to the db
 
   mdb = db;
 });
